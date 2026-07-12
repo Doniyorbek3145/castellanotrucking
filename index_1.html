@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Castelano Trucking LLC — Dry Van Freight, Hanover MD</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --asphalt: #17181A;
+    --asphalt-2: #201F1C;
+    --steel: #4B5157;
+    --amber: #F2A900;
+    --amber-dim: #B8820A;
+    --paper: #F3EFE6;
+    --paper-line: #DCD5C4;
+    --ink: #1B1B18;
+    --rust: #A63A1E;
+    --white: #F7F5F0;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  h1,h2,h3{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    font-weight:600;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  a{color:inherit;}
+
+  :focus-visible{
+    outline:3px solid var(--amber);
+    outline-offset:2px;
+  }
+
+  /* ===== Lane-line divider ===== */
+  .lane-divider{
+    height:4px;
+    width:100%;
+    background-image: repeating-linear-gradient(90deg, var(--amber) 0px, var(--amber) 36px, transparent 36px, transparent 64px);
+    background-size: 200px 4px;
+    animation: laneMove 3.5s linear infinite;
+  }
+  @keyframes laneMove{
+    from{background-position-x:0;}
+    to{background-position-x:-200px;}
+  }
+
+  /* ===== Header / Hero ===== */
+  header{
+    background:var(--asphalt);
+    color:var(--white);
+    padding:0 6vw;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:1100px;
+    margin:0 auto;
+    padding:5.5rem 0 4.5rem;
+    position:relative;
+    z-index:2;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--amber);
+    font-size:0.8rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+    margin-bottom:1.6rem;
+  }
+  .eyebrow::before{
+    content:'';
+    width:8px;height:8px;
+    background:var(--amber);
+    display:inline-block;
+  }
+  h1.company{
+    font-size:clamp(2.4rem, 7vw, 5.2rem);
+    line-height:0.98;
+    color:var(--white);
+    -webkit-text-stroke: 0px;
+  }
+  h1.company span{
+    color:var(--amber);
+  }
+  .hero-sub{
+    max-width:560px;
+    margin-top:1.6rem;
+    font-size:1.08rem;
+    color:#CFCBC2;
+    line-height:1.55;
+  }
+  .hero-cta{
+    margin-top:2.4rem;
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.95rem 1.7rem;
+    text-decoration:none;
+    transition:transform 0.15s ease, background 0.15s ease;
+    border:2px solid transparent;
+  }
+  .btn-primary{
+    background:var(--amber);
+    color:var(--asphalt);
+  }
+  .btn-primary:hover{
+    transform:translateY(-2px);
+    background:#FFC233;
+  }
+  .btn-ghost{
+    border-color:#565A5C;
+    color:var(--white);
+  }
+  .btn-ghost:hover{
+    border-color:var(--amber);
+    color:var(--amber);
+  }
+
+  /* faint diagonal placard chevrons in hero background */
+  .chevrons{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    opacity:0.06;
+    background-image: repeating-linear-gradient(-45deg, var(--white) 0 14px, transparent 14px 42px);
+  }
+
+  /* ===== Section shell ===== */
+  section{
+    padding:5rem 6vw;
+  }
+  .section-inner{
+    max-width:1100px;
+    margin:0 auto;
+  }
+
+  /* ===== Manifest services section ===== */
+  .manifest{
+    background:var(--paper);
+    border:1px solid var(--paper-line);
+  }
+  .manifest-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:1rem;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:1.2rem;
+    margin-bottom:0.5rem;
+  }
+  .manifest-head h2{
+    font-size:clamp(1.6rem, 4vw, 2.4rem);
+  }
+  .manifest-no{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    color:var(--steel);
+  }
+  .manifest-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:1rem;
+  }
+  .manifest-table tr{
+    border-bottom:1px dashed var(--paper-line);
+  }
+  .manifest-table tr:last-child{
+    border-bottom:none;
+  }
+  .manifest-table td{
+    padding:1.6rem 0.5rem;
+    vertical-align:top;
+  }
+  .item-no{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1.6rem;
+    color:var(--amber-dim);
+    width:70px;
+    font-weight:500;
+  }
+  .item-title{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    font-size:1.15rem;
+    font-weight:600;
+    letter-spacing:0.02em;
+    width:220px;
+    padding-right:1.5rem;
+  }
+  .item-desc{
+    color:#3B3A35;
+    line-height:1.55;
+    font-size:0.98rem;
+  }
+
+  /* ===== Coverage section ===== */
+  .coverage{
+    background:var(--asphalt-2);
+    color:var(--white);
+  }
+  .coverage .section-inner{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap:3rem;
+    align-items:center;
+  }
+  .coverage h2{
+    color:var(--white);
+    font-size:clamp(1.6rem, 4vw, 2.4rem);
+    margin-bottom:1.2rem;
+  }
+  .coverage p{
+    color:#C9C5BC;
+    line-height:1.65;
+    max-width:460px;
+  }
+  .coverage-list{
+    margin-top:1.6rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.9rem;
+    color:var(--amber);
+    display:flex;
+    flex-direction:column;
+    gap:0.5rem;
+  }
+  @media (max-width: 800px){
+    .coverage .section-inner{grid-template-columns:1fr;}
+  }
+
+  /* Route diagram */
+  .route-svg{width:100%; height:auto; max-width:480px;}
+
+  /* ===== Why section ===== */
+  .why .section-inner{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:2rem;
+  }
+  .why-card{
+    border:1px solid var(--paper-line);
+    padding:1.8rem 1.5rem;
+    background:var(--white);
+  }
+  .why-card .num{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--rust);
+    font-size:0.8rem;
+    letter-spacing:0.1em;
+  }
+  .why-card h3{
+    font-size:1.15rem;
+    margin:0.7rem 0 0.6rem;
+  }
+  .why-card p{
+    font-size:0.94rem;
+    line-height:1.55;
+    color:#4A4842;
+  }
+  @media (max-width: 800px){
+    .why .section-inner{grid-template-columns:1fr;}
+  }
+
+  /* ===== Contact / signature block ===== */
+  .contact{
+    background:var(--asphalt);
+    color:var(--white);
+    position:relative;
+  }
+  .bol{
+    border:2px solid #4A4E52;
+    padding:2.6rem;
+    position:relative;
+  }
+  .bol-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:1.5rem;
+    border-bottom:1px dashed #4A4E52;
+    padding-bottom:1.6rem;
+    margin-bottom:1.6rem;
+  }
+  .bol-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.15em;
+    color:#8B9096;
+    text-transform:uppercase;
+    margin-bottom:0.4rem;
+  }
+  .bol-value{
+    font-size:1.05rem;
+    color:var(--white);
+  }
+  .bol-value.big{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    font-size:1.6rem;
+  }
+  .stamp{
+    position:absolute;
+    top:1.6rem;
+    right:2rem;
+    width:118px;
+    height:118px;
+    border:3px solid var(--rust);
+    border-radius:50%;
+    color:var(--rust);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transform:rotate(-14deg);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    line-height:1.3;
+    opacity:0.85;
+  }
+  .bol-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:1.5rem;
+    margin-top:2rem;
+  }
+  .bol-cta{
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+  }
+
+  footer{
+    background:var(--asphalt);
+    color:#7B8085;
+    text-align:center;
+    padding:1.8rem 1rem 2.4rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.03em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="chevrons" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">Dry Van &middot; General Freight</div>
+    <h1 class="company">CASTELANO<br><span>TRUCKING LLC</span></h1>
+    <p class="hero-sub">Based in Hanover, Maryland, right at the crossroads of the Baltimore–Washington corridor. We move palletized and general freight by the truckload &mdash; on time, and on schedule.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="mailto:david@castellanotrucking.com?subject=Freight%20Quote%20Request">Request a Quote</a>
+      <a class="btn btn-ghost" href="#services">View Services</a>
+    </div>
+  </div>
+  <div class="lane-divider" aria-hidden="true"></div>
+</header>
+
+<section class="manifest" id="services">
+  <div class="section-inner">
+    <div class="manifest-head">
+      <h2>Freight Manifest</h2>
+      <span class="manifest-no mono">SERVICES &mdash; CASTELANO TRUCKING LLC</span>
+    </div>
+    <table class="manifest-table">
+      <tr>
+        <td class="item-no mono">01</td>
+        <td class="item-title">Dry Van</td>
+        <td class="item-desc">General commodities and palletized freight moved in enclosed 53' trailers. Protected from weather, road debris, and temperature swings.</td>
+      </tr>
+      <tr>
+        <td class="item-no mono">02</td>
+        <td class="item-title">Full Truckload</td>
+        <td class="item-desc">One shipper, one trailer, door to door. No consolidation, no extra stops &mdash; your freight moves straight from pickup to delivery.</td>
+      </tr>
+      <tr>
+        <td class="item-no mono">03</td>
+        <td class="item-title">Regional &amp; OTR</td>
+        <td class="item-desc">Short regional runs around the Mid-Atlantic or longer over-the-road lanes, scaled to what the shipment actually needs.</td>
+      </tr>
+      <tr>
+        <td class="item-no mono">04</td>
+        <td class="item-title">Dedicated Lanes</td>
+        <td class="item-desc">Recurring routes on a set schedule for shippers who need the same lane run week after week, reliably.</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section class="coverage">
+  <div class="section-inner">
+    <div>
+      <h2>Positioned on the Corridor</h2>
+      <p>Hanover, MD sits between Baltimore and Washington, D.C., close to major interstate access &mdash; a practical staging point for freight moving across the Mid-Atlantic.</p>
+      <div class="coverage-list">
+        <span>&rarr; BALTIMORE, MD</span>
+        <span>&rarr; WASHINGTON, D.C.</span>
+        <span>&rarr; PHILADELPHIA, PA</span>
+        <span>&rarr; MID-ATLANTIC &amp; BEYOND</span>
+      </div>
+    </div>
+    <svg class="route-svg" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing routes from Hanover, MD radiating outward">
+      <circle cx="120" cy="200" r="7" fill="#F2A900"/>
+      <text x="135" y="205" fill="#F7F5F0" font-family="IBM Plex Mono, monospace" font-size="13">HANOVER, MD</text>
+      <line x1="120" y1="200" x2="300" y2="60" stroke="#4B5157" stroke-width="2" stroke-dasharray="6 6"/>
+      <circle cx="300" cy="60" r="5" fill="#F7F5F0"/>
+      <text x="312" y="58" fill="#C9C5BC" font-family="IBM Plex Mono, monospace" font-size="12">PHILADELPHIA</text>
+      <line x1="120" y1="200" x2="330" y2="150" stroke="#4B5157" stroke-width="2" stroke-dasharray="6 6"/>
+      <circle cx="330" cy="150" r="5" fill="#F7F5F0"/>
+      <text x="342" y="153" fill="#C9C5BC" font-family="IBM Plex Mono, monospace" font-size="12">BALTIMORE</text>
+      <line x1="120" y1="200" x2="290" y2="270" stroke="#4B5157" stroke-width="2" stroke-dasharray="6 6"/>
+      <circle cx="290" cy="270" r="5" fill="#F7F5F0"/>
+      <text x="302" y="274" fill="#C9C5BC" font-family="IBM Plex Mono, monospace" font-size="12">WASHINGTON, D.C.</text>
+      <line x1="120" y1="200" x2="70" y2="80" stroke="#4B5157" stroke-width="2" stroke-dasharray="6 6"/>
+      <circle cx="70" cy="80" r="5" fill="#F7F5F0"/>
+      <text x="15" y="65" fill="#C9C5BC" font-family="IBM Plex Mono, monospace" font-size="12">MID-ATLANTIC</text>
+    </svg>
+  </div>
+</section>
+
+<section class="why">
+  <div class="section-inner">
+    <div class="why-card">
+      <div class="num mono">STANDARD 01</div>
+      <h3>Straight Answers</h3>
+      <p>You'll hear directly from us about pickup windows, transit time, and anything that changes along the way.</p>
+    </div>
+    <div class="why-card">
+      <div class="num mono">STANDARD 02</div>
+      <h3>Careful Handling</h3>
+      <p>Freight is secured and inspected before it leaves the dock, and checked again before it's signed off at delivery.</p>
+    </div>
+    <div class="why-card">
+      <div class="num mono">STANDARD 03</div>
+      <h3>On Schedule</h3>
+      <p>Pickup and delivery times are commitments, not estimates. We plan routes around keeping them.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="bol">
+      <div class="stamp">Approved<br>for<br>Transport</div>
+      <div class="bol-top">
+        <div>
+          <div class="bol-label">Carrier</div>
+          <div class="bol-value big">Castelano Trucking LLC</div>
+        </div>
+        <div>
+          <div class="bol-label">Terminal Address</div>
+          <div class="bol-value">2819 Fredericksburg Rd<br>Hanover, MD 21076</div>
+        </div>
+      </div>
+      <div class="bol-bottom">
+        <div>
+          <div class="bol-label">Contact</div>
+          <div class="bol-value"><a href="mailto:david@castellanotrucking.com">david@castellanotrucking.com</a></div>
+        </div>
+        <div class="bol-cta">
+          <a class="btn btn-primary" href="mailto:david@castellanotrucking.com?subject=Freight%20Quote%20Request">Email for a Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  CASTELANO TRUCKING LLC &mdash; 2819 FREDERICKSBURG RD, HANOVER, MD 21076
+</footer>
+
+</body>
+</html>
